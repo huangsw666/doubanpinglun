@@ -1,0 +1,38 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @require      https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js
+// @match        https://www.douban.com/group/topic/190612293/
+// @grant        unsafeWindow
+// ==/UserScript==
+
+(function() {
+    'use strict';
+var $ = unsafeWindow.jQuery;
+// Your code here...
+console.log("tamperomonkey started")
+function a(){
+    console.log("zhixinglesettimeouthanshu")
+}
+function sleep(time){
+	var timeStamp = new Date().getTime();
+	var endTime = timeStamp + time;
+	while(true){
+		if (new Date().getTime() > endTime){
+			return;
+		}
+	}
+}
+$(document).ready(function() {
+    $("textarea").text("up");
+    $("input[name='submit_btn']").trigger("click");
+    setTimeout(sleep(200000), 1000);
+    $('li').click(function(){
+        window.location.href = "https://www.douban.com/group/topic/190612293/";
+    })
+    $("li").trigger("click");
+
+})();
